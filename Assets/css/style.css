@@ -1,0 +1,15 @@
+header {
+    display: flexbox;
+    background-color: white;
+    justify-content: center;
+    text-align: center;
+    color: blue;
+
+}
+
+.card {
+    background-color: gray;
+    color: white;
+    border: black;
+    margin: 10px;
+}   
