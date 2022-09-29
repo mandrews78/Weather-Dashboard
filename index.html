@@ -12,35 +12,41 @@
 
 </head>
 
+
+
 <body class="containter-fluid">
     <header>
-        <h1 class="mb-3">Weather Dashboard</h1>
+        <h1 class="fw-bolder">Weather Dashboard</h1>
     </header>
 
     <div class="row">
         <!--Search a City-->
-        <div class="col-2" id="search">
-            <h2>Search for a City: </h2>
-            <input class="form-control" type="text" placeholder="Enter a city" id="cityName" />
-            <br>
-            <button type="button" class="btn btn-primary btn-lg" id="searchButton">Search</button>
-            <br>
+        <div class="col-sm-3" id="search">
+            <h3>Search for a City: </h3>
+            <input class="form-control-sm" placeholder="Enter a city" type="text" id="cityName" />
+            <button class="btn btn-primary" id="searchButton">Search</button>
+            <hr>
             <div class="list-group" id="searchHistory"></div>
         </div>
-        <div class="col-10">
-            <div class="row" id="currentWeather"></div>
 
+        <!-- Display Weather -->
+        <div class="col-auto">
+            <!-- Current Weather -->
+            <div class="row" id="currentWeather"></div>
+            <!-- 5 day forecast -->
             <div class="row" id="forecastWeather">
-                <h3>5 Day Forecast</h3>
+                <h4>5 Day Forecast: </h4>
             </div>
         </div>
     </div>
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./Assets/js/script.js"></script>
 </body>
 

@@ -1,15 +1,16 @@
 header {
     display: flexbox;
-    background-color: white;
+    background-color: blue;
     justify-content: center;
     text-align: center;
-    color: blue;
+    color: white;
+    border:solid black;
 
 }
 
 .card {
-    background-color: gray;
+    background-color: blue;
     color: white;
-    border: black;
+    border:solid black;
     margin: 10px;
 }   
