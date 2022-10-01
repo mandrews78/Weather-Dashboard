@@ -1,12 +1,10 @@
 // API Key
 var apiKey = "2d6a004b9873e7e195e89bd1de4c9df4";
 
-
 //Variables
 //empty array until given an event
 var cityList = [];
 var count = 0;
-
 
 // Displays the Current Weather
 var currentWeather = function (city) {
@@ -21,8 +19,8 @@ var currentWeather = function (city) {
                 var long = data[0].lon;
                 $("#currentWeather").addClass("border");
                 // City's Name
-                var cityName = $('<h3></h3>').text(data[0].cityName);
-                $('#currentWeather').append(cityName);
+                var name = $('<h3></h3>').text(data[0].name);
+                $('#currentWeather').append(name);
 
                 // Checks Latitude & Longitude API
                 var apiURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=minutely,hourly,daily,alerts&units=imperial&appid=" + apiKey;
@@ -31,12 +29,12 @@ var currentWeather = function (city) {
                         response.json().then(function (data) {
                             // Displays the Date
                             var todaysDate = new Date(data.current.dt * 1000).toLocaleDateString("en-US");
-                            $(cityName).append(" " + todaysDate);
+                            $(name).append(" " + todaysDate);
                             // Displays Weather Icons
                             var icon = data.current.weather[0].icon;
                             var image = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
                             var weatherIcons = $('<img></img>').attr("src", image);
-                            $(cityName).append(weatherIcons);
+                            $(name).append(weatherIcons);
                             // Displays the Temperature
                             var temp = $('<p></p>').text("Temp: " + data.current.temp + "°F");
                             $('#currentWeather').append(temp);
@@ -128,23 +126,23 @@ var futureWeather = function (city) {
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
 
-    var cityName = $("#cityName").val();
-    if (!cityList.includes(cityName)) {
-        cityList.push(cityName);
-        var cities = $('<li class="list-group-item list-group-item-info"></li>').text(cityName);
+    var city = $("#cityName").val();
+    if (!cityList.includes(city)) {
+        cityList.push(city);
+        var cities = $('<li class="list-group-item list-group-item-info"></li>').text(city);
         $('#historyList').append(cities);
     }
     localStorage.setItem("City", JSON.stringify(cityList));
-    currentWeather(cityName);
+    currentWeather(city);
 });
 
 // History Search List Event Listener
 $("#historyList").on("click", ".list-group-item", function () {
-    var cityName = JSON.parse(localStorage.getItem("City"));
+    var city = JSON.parse(localStorage.getItem("City"));
     var searchHistory = $(this).text();
-    for (var i = 0; i < cityName.length; i++) {
-        if (cityName[i] === searchHistory) {
-            currentWeather(cityName[i]);
+    for (var i = 0; i < city.length; i++) {
+        if (city[i] === searchHistory) {
+            currentWeather(city[i]);
         }
     }
 });
