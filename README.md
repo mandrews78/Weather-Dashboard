@@ -3,6 +3,11 @@
 
 Weather dashboard using a server side API
 
+## Repo: 
+git@github.com:mandrews78/Weather-Dashboard.git
+
+## Webpage:
+https://mandrews78.github.io/Weather-Dashboard/
 
 ## User StoryUser Story
 
